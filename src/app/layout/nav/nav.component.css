@@ -1,0 +1,11 @@
+ul{
+  width: 100%;
+  background: rgb(27, 111, 221, .3);
+  display: flex;
+}
+
+li{
+  padding: 10px 2em;
+  cursor: pointer;
+  color: gray;
+}
