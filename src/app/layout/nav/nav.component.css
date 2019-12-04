@@ -9,3 +9,7 @@ li{
   cursor: pointer;
   color: gray;
 }
+
+li.active{
+  color: black;
+}
