@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutModule } from './about/about.module';
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -17,8 +16,7 @@ import { AboutModule } from './about/about.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    AboutModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始
