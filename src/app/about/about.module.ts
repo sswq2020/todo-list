@@ -8,6 +8,6 @@ import { AboutComponent } from './about.component';
   imports: [
     CommonModule
   ],
-  exports: [AboutComponent] // 声明导出模块
+  declarations: [AboutComponent]
 })
 export class AboutModule { }
