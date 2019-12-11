@@ -1,10 +1,11 @@
+<button (click)="deleteSelected()">删除选中的</button>
 <table>
   <thead>
     <tr>
       <th>
-        <input type="checkbox">
+        <input type="checkbox"  (ngModelChange)="toggleAll()" [(ngModel)]="selectAll">
       </th>
-      <th>Description</th>shix
+      <th>Description</th>
       <th>Category</th>
       <th>Operate</th>
     </tr>
@@ -12,7 +13,7 @@
   <tbody>
     <tr *ngFor="let item of todos">
       <td>
-        <input type="checkbox">
+        <input type="checkbox" [(ngModel)]="item.selected" (ngModelChange)="check()">
       </td>
       <td>{{item.description}}</td>
       <td>{{item.category}}</td>
