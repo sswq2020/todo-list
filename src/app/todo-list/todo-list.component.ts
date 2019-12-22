@@ -17,9 +17,11 @@ export class TodoListComponent implements OnInit {
     { id: 992, description: 'For test purpose ccc', category: 6, content: 'test ccc' }
   ];
 
-  selectAll = false;
+  selectAll: boolean;
 
-  constructor() {}
+  constructor() {
+    this.selectAll = false;
+  }
 
   ngOnInit() {}
 
@@ -40,6 +42,10 @@ export class TodoListComponent implements OnInit {
 
   deleteSelected() {
     this.todos.filter(item => item.selected).map(item2 => item2.id).forEach(item3 => this.delete(item3));
+  }
+
+  navigateTo(item: PrivateTodo) {
+
   }
 
 }

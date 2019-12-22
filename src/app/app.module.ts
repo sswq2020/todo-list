@@ -9,6 +9,7 @@ import { NavComponent } from './layout/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 // 装饰器@NgModule,用来装饰AppModule类
@@ -18,7 +19,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     TodoComponent,
     NavComponent,
     CreateTodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
