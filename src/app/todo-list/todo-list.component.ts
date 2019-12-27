@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Todo} from './interface';
+import {Router, ActivatedRoute} from '@angular/router';
 
 interface PrivateTodo  extends Todo {
   selected?: boolean;
@@ -10,25 +11,27 @@ interface PrivateTodo  extends Todo {
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todos: Array<PrivateTodo> = [
-    { id: 999, description: 'For test purpose', category: 1, content: 'test' },
-    { id: 998, description: 'For test purpose aaa', category: 2, content: 'test aaa' },
-    { id: 991, description: 'For test purpose bbb', category: 4, content: 'test bbb' },
-    { id: 992, description: 'For test purpose ccc', category: 6, content: 'test ccc' }
-  ];
+  @Input()
+  todos: Array<PrivateTodo>;
+
+  @Output()
+  delete: EventEmitter<number> = new EventEmitter();
 
   selectAll: boolean;
 
-  constructor() {
+  /***Router,ActivatedRoute是类,按理说应该需要实例化,但是Angular对其依赖注入，不需要自己实例化*/
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.selectAll = false;
   }
 
-  ngOnInit() {}
-
-  delete(id: number) {
-    const index = this.todos.findIndex(item => item.id === id);
-    if (index > -1) { this.todos.splice(index, 1); }
+  deleteSelected() {
+    this.todos
+    .filter(item => item.selected)
+    .map(item2 => item2.id)
+    .forEach(item3 => this.delete.next(item3));
   }
+
+  ngOnInit() {}
 
   toggleAll() {
     this.todos.forEach(item => item.selected = !this.selectAll);
@@ -40,12 +43,12 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  deleteSelected() {
-    this.todos.filter(item => item.selected).map(item2 => item2.id).forEach(item3 => this.delete(item3));
-  }
 
-  navigateTo(item: PrivateTodo) {
 
+  navigateTo(item: PrivateTodo, e: MouseEvent) {
+    if (e.target instanceof HTMLTableCellElement) {
+      this.router.navigate([item.id], { relativeTo: this.route});
+    }
   }
 
 }
