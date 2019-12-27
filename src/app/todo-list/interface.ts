@@ -4,3 +4,9 @@ export interface Todo {
   category: number;
   content: string;
 }
+
+export enum Category {
+  html,
+  css,
+  js
+}

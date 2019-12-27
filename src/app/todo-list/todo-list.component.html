@@ -16,7 +16,7 @@
         <input type="checkbox" [(ngModel)]="item.selected" (ngModelChange)="check()">
       </td>
       <td>{{item.description}}</td>
-      <td>{{item.category}}</td>
+      <td>{{item.category | category}}</td>
       <td><a (click)="delete.next(item.id)">delete</a></td>
     </tr>
   </tbody>

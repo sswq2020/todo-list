@@ -12,6 +12,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { DetailComponent } from './detail/detail.component';
 
 import { TodoService } from './providers/todo.service';
+import { CategoryPipe } from './pipes/category.pipe';
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -22,6 +23,7 @@ import { TodoService } from './providers/todo.service';
     CreateTodoComponent,
     TodoListComponent,
     DetailComponent,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,
