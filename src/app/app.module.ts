@@ -11,6 +11,7 @@ import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { DetailComponent } from './detail/detail.component';
 
+import { TodoService } from './providers/todo.service';
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -20,14 +21,14 @@ import { DetailComponent } from './detail/detail.component';
     NavComponent,
     CreateTodoComponent,
     TodoListComponent,
-    DetailComponent
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始
 })
 export class AppModule { }
