@@ -23,5 +23,12 @@ export class TodoService {
   if (index > -1) { this.data.splice(index, 1); }
  }
 
+ getTodo(id: number): Todo {
+  const index = this.data.findIndex(item => item.id === id);
+  if (index > -1) {
+    return this.data[index];
+  }
+ }
+
   constructor() { }
 }

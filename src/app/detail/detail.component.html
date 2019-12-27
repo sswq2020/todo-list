@@ -1,1 +1,7 @@
-<p>detail works!</p>
+<ul>
+  <li><strong>Description:</strong><span>{{todo.description}}</span></li>
+  <li><strong>Category:</strong><span>{{todo.category | category}}</span></li>
+  <li><strong>Content:</strong><span>{{todo.content}}</span></li>
+</ul>
+
+<app-btn [text]="'Back'" (click$)="goBack($event)"  ></app-btn>

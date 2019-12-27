@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms'; // 用于表单的双向绑定
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { NavComponent } from './layout/nav/nav.component';
+import { BtnComponent } from './layout/btn/btn.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -13,6 +14,7 @@ import { DetailComponent } from './detail/detail.component';
 
 import { TodoService } from './providers/todo.service';
 import { CategoryPipe } from './pipes/category.pipe';
+
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -23,7 +25,8 @@ import { CategoryPipe } from './pipes/category.pipe';
     CreateTodoComponent,
     TodoListComponent,
     DetailComponent,
-    CategoryPipe
+    CategoryPipe,
+    BtnComponent
   ],
   imports: [
     BrowserModule,

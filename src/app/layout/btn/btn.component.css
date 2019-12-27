@@ -1,0 +1,7 @@
+button {
+  padding: 5px;
+  border-radius: 2px;
+  background: deepskyblue;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
