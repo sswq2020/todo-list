@@ -4,4 +4,11 @@ button {
   background: deepskyblue;
   cursor: pointer;
   margin-bottom: 20px;
+  color:#fff;
+}
+
+button:disabled{
+  background: #ddd;
+  color:#000;
+  cursor: initial;
 }

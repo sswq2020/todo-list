@@ -20,4 +20,8 @@ export class TodoComponent implements OnInit {
     this.todoList = this.todoServe.getTodos();
   }
 
+  add(data: Partial<Todo>) {
+    this.todoServe.addTodo(data);
+  }
+
 }

@@ -30,5 +30,11 @@ export class TodoService {
   }
  }
 
+ addTodo(todo: Partial<Todo>) {
+   const id = Number(Math.random() * 100000 + '');
+   const newTodo = {...todo, id} as Todo;
+   this.data.push(newTodo);
+ }
+
   constructor() { }
 }

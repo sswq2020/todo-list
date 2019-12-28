@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'; // 用于表单的双向绑定
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // 用于表单的双向绑定
 
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,8 @@ import { CategoryPipe } from './pipes/category.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始

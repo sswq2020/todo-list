@@ -1,15 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, AbstractControl,Validator, Validators } from '@angular/forms';
+import { Category as Cat, Todo } from '../todo-list/interface';
+interface Category {
+  id: number;
+  name: string;
+}
+
 
 @Component({
   selector: 'app-create-todo',
   templateUrl: './create-todo.component.html',
   styleUrls: ['./create-todo.component.css']
 })
-export class CreateTodoComponent implements OnInit {
 
-  constructor() { }
+export class CreateTodoComponent implements OnInit {
+  form: FormGroup;
+
+  categories: Category[] = [
+    {id: 0, name: Cat[0]},
+    {id: 1, name: Cat[1]},
+    {id: 2, name: Cat[2]},
+  ];
+
+  @Output()
+  create: EventEmitter<Partial<Todo>> = new EventEmitter();
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      description: ['', [Validators.required, Validators.maxLength(15)]],
+      category: ['', Validators.required],
+      content: ''
+    });
   }
 
+  submit() {
+    console.log(this.form.value);
+    this.create.next({...this.form.value, category: Number(this.category.value)});
+  }
+
+  get description(): AbstractControl {
+    return this.form.get('description');
+  }
+
+  get category(): AbstractControl {
+    return this.form.get('category');
+  }
+
+  get content(): AbstractControl {
+    return this.form.get('content');
+  }
 }

@@ -1,1 +1,32 @@
-<p>create-todo works!</p>
+<form [formGroup]="form">
+  <div class="form-control">
+    <label>Description</label>
+    <input type="text" formControlName="description">
+  </div>
+  <div *ngIf="description.invalid && (description.dirty || description.touched)">
+    <div *ngIf="description.getError('required')  else lengthInvalidTpl"  class="form-error">Please input todo description</div>
+    <ng-template #lengthInvalidTpl>
+      <div class="form-error">长度必须小于15</div>
+    </ng-template>
+  </div>
+
+  <div class="form-control">
+    <label>Category</label>
+    <select formControlName="category">
+      <option *ngFor="let item of categories" [value]="item.id">{{item.name}}</option>
+    </select>
+  </div>
+  <div *ngIf="category.invalid && (category.dirty || category.touched)">
+    <div *ngIf="category.getError('required')"  class="form-error">Please select todo category</div>
+  </div>
+
+
+
+  <div class="form-control">
+    <label>Content</label>
+    <textarea formControlName="content"></textarea>
+  </div>
+
+  <app-btn [disabled]="form.invalid"   [text]="'提交'" (click$)="submit()" ></app-btn>
+
+</form>
