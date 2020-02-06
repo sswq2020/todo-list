@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // 用于表单的双向绑定
-
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -13,6 +13,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { DetailComponent } from './detail/detail.component';
 
 import { TodoService } from './providers/todo.service';
+import { PeopleService } from './providers/people.service';
 import { CategoryPipe } from './pipes/category.pipe';
 
 
@@ -32,9 +33,10 @@ import { CategoryPipe } from './pipes/category.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [TodoService],
+  providers: [TodoService, PeopleService],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始
 })
 export class AppModule { }
