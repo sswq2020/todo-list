@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
 app.get('/api/v1/people',(req,res)=>{
+  res.set('my-custom-header','Angular rocks')
   res.json([{"name":"张三","age":12},{"name":"李四","age":22}])
 })
 
