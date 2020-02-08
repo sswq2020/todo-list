@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // 用于表单的双向绑定
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -15,6 +15,7 @@ import { DetailComponent } from './detail/detail.component';
 import { TodoService } from './providers/todo.service';
 import { PeopleService } from './providers/people.service';
 import { CategoryPipe } from './pipes/category.pipe';
+import { MyInterceptorService } from './providers/interceptor.service';
 
 
 // 装饰器@NgModule,用来装饰AppModule类
@@ -36,7 +37,7 @@ import { CategoryPipe } from './pipes/category.pipe';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [TodoService, PeopleService],
+  providers: [TodoService, PeopleService, {provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true}],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始
 })
 export class AppModule { }
