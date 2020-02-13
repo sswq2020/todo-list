@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
 import { AboutRoutingModule } from './about.routing.module';
+import { ClockComponent } from '../clock/clock.component';
 
 
 
@@ -10,6 +11,6 @@ import { AboutRoutingModule } from './about.routing.module';
     CommonModule,
     AboutRoutingModule
   ],
-  declarations: [AboutComponent]
+  declarations: [AboutComponent, ClockComponent]
 })
 export class AboutModule { }

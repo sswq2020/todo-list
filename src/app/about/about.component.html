@@ -1,2 +1,13 @@
-<button (click)="update$.next()">click me</button>
-<h3>{{clock | async | date:'yyyy-MM-dd hh:mm:ss'}}</h3>
+
+<input type="number" value="0" #myInput>
+<button (click)="update$.next(myInput.value)">click me</button>
+
+<app-clock [time]="clock"></app-clock>
+<!-- <h3>{{clock | async | date:'yyyy-MM-dd hh:mm:ss'}}</h3> -->
+
+<div *ngFor="let person of people |async" (click)="people$.next(person)">
+{{person.name}} is living in {{person.time | date:'yyyy-MM-dd hh:mm:ss'}}
+
+</div>
+
+<button (click)="reset$.next()">reset</button>
