@@ -17,6 +17,8 @@ import { PeopleService } from './providers/people.service';
 import { CategoryPipe } from './pipes/category.pipe';
 import { MyInterceptorService } from './providers/interceptor.service';
 
+import {clock, people} from './reducers';
+import {StoreModule} from '@ngrx/store';
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -35,7 +37,8 @@ import { MyInterceptorService } from './providers/interceptor.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({clock,people})
   ],
   providers: [TodoService, PeopleService, {provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true}],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始
