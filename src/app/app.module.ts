@@ -18,7 +18,9 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { MyInterceptorService } from './providers/interceptor.service';
 
 import {clock, people} from './reducers';
+import {counterReducer} from './my-counter/my-counter.reducer';
 import {StoreModule} from '@ngrx/store';
+import { MyCounterComponent } from './my-counter/my-counter.component';
 
 // 装饰器@NgModule,用来装饰AppModule类
 @NgModule({
@@ -30,7 +32,8 @@ import {StoreModule} from '@ngrx/store';
     TodoListComponent,
     DetailComponent,
     CategoryPipe,
-    BtnComponent
+    BtnComponent,
+    MyCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import {StoreModule} from '@ngrx/store';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({clock,people})
+    StoreModule.forRoot({clock,people,count:counterReducer})
   ],
   providers: [TodoService, PeopleService, {provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true}],
   bootstrap: [AppComponent] // 项目启动从AppComponent开始

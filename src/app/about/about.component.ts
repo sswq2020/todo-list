@@ -12,6 +12,7 @@ import { SECOND, HOUR, ADVANCE, RESET } from '../reducers';
 })
 // 在Angular 8中,一个组件就是一个类,使用@Component装饰器进行装饰
 export class AboutComponent implements OnInit {
+  count$:any;
 
   // clock: Observable<Date>;
   clock: any;
@@ -37,6 +38,8 @@ export class AboutComponent implements OnInit {
     this.clock = this.store.select('clock');
 
     this.people = this.store.select('people');
+
+    this.count$ = this.store.select('count');
   }
 
   ngOnInit() {
